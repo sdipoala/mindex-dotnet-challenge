@@ -1,0 +1,13 @@
+﻿[
+  {
+    "Employee": {
+      "employeeId": "4da0ce6b-2dd4-4b73-946f-8013b320b023",
+      "firstName": "Neil",
+      "lastName": "Peart",
+      "position": "Developer III",
+      "department": "Engineering"
+    },
+    "Salary": 65000.00,
+    "EffectiveDate": "2024-04-15"
+  }
+]

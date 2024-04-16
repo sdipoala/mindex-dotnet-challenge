@@ -22,7 +22,10 @@ namespace CodeChallenge.Repositories
 
         public Compensation Add(Compensation compensation)
         {
-            _employeeContext.Entry(compensation.Employee).State = EntityState.Modified;
+            if (_employeeContext.Employees.Any(e => e.EmployeeId == compensation.Employee.EmployeeId))
+            {
+                _employeeContext.Entry(compensation.Employee).State = EntityState.Modified;
+            }
 
             _employeeContext.Compensations.Add(compensation);
             return compensation;
@@ -33,7 +36,10 @@ namespace CodeChallenge.Repositories
             var compensation = _employeeContext.Compensations.SingleOrDefault(c => c.Employee.EmployeeId == id);
             var employee = _employeeContext.Employees.SingleOrDefault(e => e.EmployeeId == id);
 
-            compensation.Employee = employee;
+            if (compensation != null)
+            {
+                compensation.Employee = employee;
+            }
 
             return compensation;
         }
